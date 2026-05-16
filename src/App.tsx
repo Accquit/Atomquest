@@ -2,6 +2,7 @@ import { Routes, Route, Navigate } from 'react-router-dom'
 import AppLayout from './components/layout/AppLayout'
 import Login from './pages/Login'
 import MyGoals from './pages/employee/MyGoals'
+import TeamDashboard from './pages/manager/TeamDashboard'
 import { useAuth } from './hooks/useAuth'
 import { Toaster } from './components/ui/sonner'
 
@@ -49,7 +50,7 @@ export default function App() {
 
           {/* Manager Routes */}
           <Route path="manager/team" element={
-            <ProtectedRoute allowedRoles={['manager']}><Placeholder title="Team Dashboard" /></ProtectedRoute>
+            <ProtectedRoute allowedRoles={['manager']}><TeamDashboard /></ProtectedRoute>
           } />
           <Route path="manager/checkins" element={
             <ProtectedRoute allowedRoles={['manager']}><Placeholder title="Check-in Module" /></ProtectedRoute>
