@@ -3,6 +3,8 @@ import AppLayout from './components/layout/AppLayout'
 import Login from './pages/Login'
 import MyGoals from './pages/employee/MyGoals'
 import TeamDashboard from './pages/manager/TeamDashboard'
+import AdminGoalCycles from './pages/admin/AdminGoalCycles'
+import AdminSharedGoals from './pages/admin/AdminSharedGoals'
 import { useAuth } from './hooks/useAuth'
 import { Toaster } from './components/ui/sonner'
 
@@ -61,10 +63,10 @@ export default function App() {
 
           {/* Admin Routes */}
           <Route path="admin/cycles" element={
-            <ProtectedRoute allowedRoles={['admin']}><Placeholder title="Goal Cycle Management" /></ProtectedRoute>
+            <ProtectedRoute allowedRoles={['admin']}><AdminGoalCycles /></ProtectedRoute>
           } />
           <Route path="admin/shared-goals" element={
-            <ProtectedRoute allowedRoles={['admin']}><Placeholder title="Shared Goals" /></ProtectedRoute>
+            <ProtectedRoute allowedRoles={['admin']}><AdminSharedGoals /></ProtectedRoute>
           } />
           <Route path="admin/reports" element={
             <ProtectedRoute allowedRoles={['admin']}><Placeholder title="Achievement Report" /></ProtectedRoute>
