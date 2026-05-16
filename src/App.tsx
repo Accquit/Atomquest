@@ -7,17 +7,13 @@ import TeamDashboard from './pages/manager/TeamDashboard'
 import ManagerCheckins from './pages/manager/ManagerCheckins'
 import AdminGoalCycles from './pages/admin/AdminGoalCycles'
 import AdminSharedGoals from './pages/admin/AdminSharedGoals'
+import AdminAnalytics from './pages/admin/AdminAnalytics'
+import AdminDashboard from './pages/admin/AdminDashboard'
+import AdminAudit from './pages/admin/AdminAudit'
+import AdminEscalations from './pages/admin/AdminEscalations'
 import AchievementReport from './pages/shared/AchievementReport'
 import { useAuth } from './hooks/useAuth'
 import { Toaster } from './components/ui/sonner'
-
-// Placeholder components
-const Placeholder = ({ title }: { title: string }) => (
-  <div className="p-6">
-    <h2 className="text-2xl font-bold">{title}</h2>
-    <p className="text-slate-500 mt-2">Work in progress...</p>
-  </div>
-)
 
 const ProtectedRoute = ({ children, allowedRoles }: { children: React.ReactNode, allowedRoles: string[] }) => {
   const { role, isLoading } = useAuth()
@@ -75,16 +71,16 @@ export default function App() {
             <ProtectedRoute allowedRoles={['admin']}><AchievementReport /></ProtectedRoute>
           } />
           <Route path="admin/dashboard" element={
-            <ProtectedRoute allowedRoles={['admin']}><Placeholder title="Completion Dashboard" /></ProtectedRoute>
+            <ProtectedRoute allowedRoles={['admin']}><AdminDashboard /></ProtectedRoute>
           } />
           <Route path="admin/audit" element={
-            <ProtectedRoute allowedRoles={['admin']}><Placeholder title="Audit Trail" /></ProtectedRoute>
+            <ProtectedRoute allowedRoles={['admin']}><AdminAudit /></ProtectedRoute>
           } />
           <Route path="admin/escalations" element={
-            <ProtectedRoute allowedRoles={['admin']}><Placeholder title="Escalation Rules" /></ProtectedRoute>
+            <ProtectedRoute allowedRoles={['admin']}><AdminEscalations /></ProtectedRoute>
           } />
           <Route path="admin/analytics" element={
-            <ProtectedRoute allowedRoles={['admin']}><Placeholder title="Analytics" /></ProtectedRoute>
+            <ProtectedRoute allowedRoles={['admin']}><AdminAnalytics /></ProtectedRoute>
           } />
         </Route>
       </Routes>
@@ -92,3 +88,5 @@ export default function App() {
     </>
   )
 }
+
+

@@ -1,6 +1,6 @@
 import { createContext, useContext, useEffect, useState } from 'react'
-import { Session, User } from '@supabase/supabase-js'
-import { supabase } from '../lib/supabase'
+import { type Session, type User } from '@supabase/supabase-js'
+import { db as supabase } from '../lib/supabase'
 
 interface AuthContextType {
   session: Session | null
@@ -57,7 +57,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
       .single()
       
     if (data && !error) {
-      setRole(data.role as any)
+      setRole((data as { role: 'employee' | 'manager' | 'admin' }).role)
     }
     setIsLoading(false)
   }
@@ -74,3 +74,5 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
 }
 
 export const useAuth = () => useContext(AuthContext)
+
+

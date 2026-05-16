@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { supabase } from '../../lib/supabase'
+import { db as supabase } from '../../lib/supabase'
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '../../components/ui/card'
 import { Button } from '../../components/ui/button'
 import { Switch } from '../../components/ui/switch'
@@ -194,3 +194,5 @@ export default function AdminGoalCycles() {
     </div>
   )
 }
+
+

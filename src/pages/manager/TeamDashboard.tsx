@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { supabase } from '../../lib/supabase'
+import { db as supabase } from '../../lib/supabase'
 import { useAuth } from '../../hooks/useAuth'
 import { Card, CardContent, CardHeader, CardTitle } from '../../components/ui/card'
 import { Badge } from '../../components/ui/badge'
@@ -250,3 +250,5 @@ export default function TeamDashboard() {
     </div>
   )
 }
+
+

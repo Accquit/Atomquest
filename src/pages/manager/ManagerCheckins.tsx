@@ -1,20 +1,18 @@
 import { useState, useEffect } from 'react'
 import { useAuth } from '../../hooks/useAuth'
-import { supabase } from '../../lib/supabase'
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '../../components/ui/card'
+import { db as supabase } from '../../lib/supabase'
+import { Card, CardContent, CardHeader, CardTitle } from '../../components/ui/card'
 import { Button } from '../../components/ui/button'
-import { Input } from '../../components/ui/input'
 import { Label } from '../../components/ui/label'
 import { toast } from 'sonner'
 import { Badge } from '../../components/ui/badge'
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '../../components/ui/table'
-import { MessageSquare, CheckCircle } from 'lucide-react'
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogFooter } from '../../components/ui/dialog'
+import { MessageSquare } from 'lucide-react'
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogFooter, DialogDescription } from '../../components/ui/dialog'
 
 export default function ManagerCheckins() {
   const { user } = useAuth()
   const [employees, setEmployees] = useState<any[]>([])
-  const [activeCycle, setActiveCycle] = useState<any>(null)
   const [activeQuarter, setActiveQuarter] = useState<string | null>(null)
   
   const [goals, setGoals] = useState<Record<string, any[]>>({})
@@ -34,7 +32,6 @@ export default function ManagerCheckins() {
     setIsLoading(true)
     
     const { data: cycleData } = await supabase.from('goal_cycles').select('*').eq('is_active', true).single()
-    setActiveCycle(cycleData)
 
     let currentQ = null
     if (cycleData?.q1_open) currentQ = 'Q1'
@@ -243,3 +240,5 @@ export default function ManagerCheckins() {
     </div>
   )
 }
+
+
