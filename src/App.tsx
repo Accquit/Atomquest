@@ -4,6 +4,7 @@ import Login from './pages/Login'
 import MyGoals from './pages/employee/MyGoals'
 import EmployeeCheckins from './pages/employee/EmployeeCheckins'
 import TeamDashboard from './pages/manager/TeamDashboard'
+import ManagerCheckins from './pages/manager/ManagerCheckins'
 import AdminGoalCycles from './pages/admin/AdminGoalCycles'
 import AdminSharedGoals from './pages/admin/AdminSharedGoals'
 import { useAuth } from './hooks/useAuth'
@@ -56,7 +57,7 @@ export default function App() {
             <ProtectedRoute allowedRoles={['manager']}><TeamDashboard /></ProtectedRoute>
           } />
           <Route path="manager/checkins" element={
-            <ProtectedRoute allowedRoles={['manager']}><Placeholder title="Check-in Module" /></ProtectedRoute>
+            <ProtectedRoute allowedRoles={['manager']}><ManagerCheckins /></ProtectedRoute>
           } />
           <Route path="manager/reports" element={
             <ProtectedRoute allowedRoles={['manager', 'admin']}><Placeholder title="Achievement Report" /></ProtectedRoute>
