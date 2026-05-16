@@ -2,6 +2,7 @@ import { Routes, Route, Navigate } from 'react-router-dom'
 import AppLayout from './components/layout/AppLayout'
 import Login from './pages/Login'
 import MyGoals from './pages/employee/MyGoals'
+import EmployeeCheckins from './pages/employee/EmployeeCheckins'
 import TeamDashboard from './pages/manager/TeamDashboard'
 import AdminGoalCycles from './pages/admin/AdminGoalCycles'
 import AdminSharedGoals from './pages/admin/AdminSharedGoals'
@@ -47,7 +48,7 @@ export default function App() {
             <ProtectedRoute allowedRoles={['employee']}><MyGoals /></ProtectedRoute>
           } />
           <Route path="employee/checkins" element={
-            <ProtectedRoute allowedRoles={['employee']}><Placeholder title="Quarterly Check-ins" /></ProtectedRoute>
+            <ProtectedRoute allowedRoles={['employee']}><EmployeeCheckins /></ProtectedRoute>
           } />
 
           {/* Manager Routes */}
