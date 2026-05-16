@@ -1,6 +1,7 @@
 import { Routes, Route, Navigate } from 'react-router-dom'
 import AppLayout from './components/layout/AppLayout'
 import Login from './pages/Login'
+import MyGoals from './pages/employee/MyGoals'
 import { useAuth } from './hooks/useAuth'
 import { Toaster } from './components/ui/sonner'
 
@@ -40,7 +41,7 @@ export default function App() {
 
           {/* Employee Routes */}
           <Route path="employee/goals" element={
-            <ProtectedRoute allowedRoles={['employee']}><Placeholder title="My Goals" /></ProtectedRoute>
+            <ProtectedRoute allowedRoles={['employee']}><MyGoals /></ProtectedRoute>
           } />
           <Route path="employee/checkins" element={
             <ProtectedRoute allowedRoles={['employee']}><Placeholder title="Quarterly Check-ins" /></ProtectedRoute>
