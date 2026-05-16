@@ -7,6 +7,7 @@ import TeamDashboard from './pages/manager/TeamDashboard'
 import ManagerCheckins from './pages/manager/ManagerCheckins'
 import AdminGoalCycles from './pages/admin/AdminGoalCycles'
 import AdminSharedGoals from './pages/admin/AdminSharedGoals'
+import AchievementReport from './pages/shared/AchievementReport'
 import { useAuth } from './hooks/useAuth'
 import { Toaster } from './components/ui/sonner'
 
@@ -60,7 +61,7 @@ export default function App() {
             <ProtectedRoute allowedRoles={['manager']}><ManagerCheckins /></ProtectedRoute>
           } />
           <Route path="manager/reports" element={
-            <ProtectedRoute allowedRoles={['manager', 'admin']}><Placeholder title="Achievement Report" /></ProtectedRoute>
+            <ProtectedRoute allowedRoles={['manager', 'admin']}><AchievementReport /></ProtectedRoute>
           } />
 
           {/* Admin Routes */}
@@ -71,7 +72,7 @@ export default function App() {
             <ProtectedRoute allowedRoles={['admin']}><AdminSharedGoals /></ProtectedRoute>
           } />
           <Route path="admin/reports" element={
-            <ProtectedRoute allowedRoles={['admin']}><Placeholder title="Achievement Report" /></ProtectedRoute>
+            <ProtectedRoute allowedRoles={['admin']}><AchievementReport /></ProtectedRoute>
           } />
           <Route path="admin/dashboard" element={
             <ProtectedRoute allowedRoles={['admin']}><Placeholder title="Completion Dashboard" /></ProtectedRoute>
